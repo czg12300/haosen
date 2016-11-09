@@ -1,0 +1,71 @@
+<RelativeLayout android:id="@+id/vlistitem_allbox"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/main_background">
+
+    <RelativeLayout
+        android:id="@+id/vlistitem_btnbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/vlistitem_delbtn"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@drawable/delete_btn"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/vlistitem_showbox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@color/main_background"
+        android:padding="5dp"><!-- android:layout_toRightOf="@+id/vlistitem_btnbox" -->
+
+        <ImageView
+            android:id="@+id/vlistitem_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/equiment"/>
+
+        <TextView
+            android:id="@+id/vlistitem_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@+id/vlistitem_online_img"
+            android:layout_toRightOf="@+id/vlistitem_img"
+            android:text="设备名称"
+            android:textColor="#555555"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:id="@+id/vlistitem_online_img"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/vlistitem_ico"
+            android:src="@drawable/online0"/>
+
+        <ImageView
+            android:id="@+id/vlistitem_ico"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/open"/>
+
+    </RelativeLayout>
+</RelativeLayout>

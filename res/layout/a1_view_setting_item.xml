@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+    android:layout_height="@dimen/setting_item_height">
+
+    <ImageView
+        android:id="@+id/setting_item_icon"
+        android:layout_width="@dimen/setting_item_height"
+        android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:src="@drawable/reg_fail" />
+
+    <TextView
+        android:id="@+id/setting_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/setting_item_icon"
+        android:gravity="center"
+        android:text="账户"
+        android:textColor="#42413f"
+        android:textSize="@dimen/setting_item_titlesize" />
+
+
+    <TextView
+        android:id="@+id/setting_item_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/setting_item_accessory"
+        android:gravity="center"
+        android:text="13454564612"
+        android:textColor="#8a8a8a"
+        android:textSize="@dimen/setting_item_detail_titlesize" />
+
+    <ImageView
+        android:id="@+id/setting_item_accessory"
+        android:layout_width="25dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:padding="5dp"
+        android:src="@drawable/arrow" />
+
+</RelativeLayout>

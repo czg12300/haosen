@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_background"
+                android:orientation="vertical">
+
+    <com.heneng.heater.views.HeaderView
+        android:id="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height"
+        app:headerLeftText="返回"
+        app:headerRightText="停止"
+        app:headerTitle="正在连接设备"
+        ></com.heneng.heater.views.HeaderView>
+
+    <LinearLayout
+        android:id="@+id/smartconfig_ll_center"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true">
+
+        <ImageView
+
+            android:layout_width="160dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/connect_tip"/>
+
+        <TextView
+            android:id="@+id/smartconfig_tv_count"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="300"
+            android:textColor="#000000"
+            android:textSize="40sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/smartconfig_ll_center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="请长按按钮5秒钟以上，绿灯快速闪烁时放开手指，如果红灯闪烁，表示WIFI密码输入有误，请返回重新输入。"
+        android:textColor="#000000"
+        android:textSize="15sp"/>
+
+</RelativeLayout>

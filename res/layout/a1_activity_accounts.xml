@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#eeeeee"
+              android:orientation="vertical">
+
+    <com.heneng.heater.views.HeaderView
+        android:id="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height"
+        app:headerLeftText="返回"
+        app:headerTitle="账户">
+
+    </com.heneng.heater.views.HeaderView>
+
+    <com.heneng.heater.views.SettingItem
+        android:id="@+id/account_item_reset_psw"
+        style="@style/Setting_Item"
+        android:layout_marginTop="50dp"
+        app:settingItemTitle="修改密码"></com.heneng.heater.views.SettingItem>
+
+
+
+    <TextView
+        android:id="@+id/account_logout"
+        style="@style/Yellow_button"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:text="退出登录"/>
+
+
+</LinearLayout>

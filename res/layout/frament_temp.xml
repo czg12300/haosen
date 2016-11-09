@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/fragment_tempset_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/wenduji" />
+
+    <!--移动范围 marginTop:10到225dp -->
+
+    <ImageView
+        android:id="@+id/fragment_tempset_cursor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="225dp"
+        android:src="@drawable/temp_cursor" />
+
+    <TextView
+        android:id="@+id/fragment_tempset_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fragment_tempset_cursor"
+        android:layout_alignLeft="@+id/fragment_tempset_cursor"
+        android:layout_alignRight="@+id/fragment_tempset_cursor"
+        android:layout_alignTop="@+id/fragment_tempset_cursor"
+        android:gravity="center"
+        android:paddingRight="5dp"
+        android:text="35℃"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

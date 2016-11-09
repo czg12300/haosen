@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_background"
+              android:orientation="vertical">
+
+    <com.heneng.heater.views.HeaderView
+        android:id="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height"
+        app:headerTitle="系统设置">
+
+    </com.heneng.heater.views.HeaderView>
+
+    <com.heneng.heater.views.SettingItem
+        android:id="@+id/setting_item_account"
+        style="@style/Setting_Item"
+        app:settingItemIcon="@drawable/setting_account"
+        app:settingItemSubTitle="00000000000"
+        app:settingItemTitle="账户"></com.heneng.heater.views.SettingItem>
+
+    <com.heneng.heater.views.SettingItem
+        android:id="@+id/setting_item_update"
+        style="@style/Setting_Item"
+        app:settingItemIcon="@drawable/setting_update"
+        app:settingItemTitle="版本升级"></com.heneng.heater.views.SettingItem>
+
+    <com.heneng.heater.views.SettingItem
+        android:id="@+id/setting_item_story"
+        style="@style/Setting_Item"
+        app:settingItemIcon="@drawable/setting_story"
+        app:settingItemTitle="品牌故事"></com.heneng.heater.views.SettingItem>
+
+    <com.heneng.heater.views.SettingItem
+        android:id="@+id/setting_item_contact"
+        style="@style/Setting_Item"
+        app:settingItemIcon="@drawable/setting_contact"
+        app:settingItemTitle="联系我们"></com.heneng.heater.views.SettingItem>
+</LinearLayout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/evaluation_repair_lb_device"
+                style="@style/service_evluation_repair_lb"
+                android:text="故障设备：" />
+
+
+            <EditText
+                android:id="@+id/evaluation_repair_et_device"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@+id/evaluation_repair_lb_device"
+                android:layout_toRightOf="@+id/evaluation_repair_lb_device" />
+
+            <TextView
+                android:id="@+id/evaluation_repair_lb_start_time"
+                style="@style/service_evluation_repair_lb"
+                android:layout_below="@+id/evaluation_repair_lb_device"
+                android:text="报障时间：" />
+
+            <EditText
+                android:id="@+id/evaluation_repair_et_start_time"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@id/evaluation_repair_lb_start_time"
+                android:layout_toRightOf="@id/evaluation_repair_lb_start_time" />
+
+
+            <TextView
+                android:id="@+id/evaluation_repair_lb_end_time"
+                style="@style/service_evluation_repair_lb"
+                android:layout_below="@+id/evaluation_repair_lb_start_time"
+                android:text="修复时间：" />
+
+            <EditText
+                android:id="@+id/evaluation_repair_et_end_time"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@id/evaluation_repair_lb_end_time"
+                android:layout_toRightOf="@id/evaluation_repair_lb_end_time" />
+
+            <TextView
+                android:id="@+id/evaluation_repair_lb_human"
+                style="@style/service_evluation_repair_lb"
+                android:layout_below="@+id/evaluation_repair_et_end_time"
+                android:text="维修人员：" />
+
+            <EditText
+                android:id="@+id/evaluation_repair_et_human"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@id/evaluation_repair_lb_human"
+                android:layout_toRightOf="@id/evaluation_repair_lb_human" />
+
+            <TextView
+                android:id="@+id/evaluation_repair_lb_content"
+                style="@style/service_evluation_repair_lb"
+                android:layout_below="@+id/evaluation_repair_et_human"
+                android:text="维修内容：" />
+
+            <EditText
+                android:id="@+id/evaluation_repair_et_content"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@id/evaluation_repair_lb_content"
+                android:layout_toRightOf="@id/evaluation_repair_lb_content" />
+
+            <TextView
+                android:id="@+id/evaluation_repair_lb_fee"
+                style="@style/service_evluation_repair_lb"
+                android:layout_below="@+id/evaluation_repair_lb_content"
+                android:text="维修费用：" />
+
+            <EditText
+                android:id="@+id/evaluation_repair_et_fee"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@id/evaluation_repair_lb_fee"
+                android:layout_toRightOf="@id/evaluation_repair_lb_fee" />
+
+
+            <TextView
+                android:id="@+id/evaluation_repair_lb_service_evaluation"
+                style="@style/service_evluation_repair_lb"
+                android:layout_below="@+id/evaluation_repair_lb_fee"
+                android:text="服务评价：" />
+
+            <RatingBar
+                android:id="@+id/evaluation_repair_rb_service_evaluation"
+                style="@android:style/Widget.Holo.RatingBar.Indicator"
+                android:isIndicator="false"
+                android:layout_width="170dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="@dimen/service_item_height"
+                android:layout_below="@+id/evaluation_repair_lb_fee"
+                android:layout_toRightOf="@id/evaluation_repair_lb_service_evaluation"
+                android:numStars="5"
+                android:rating="5"
+                android:stepSize="1" />
+
+
+            <TextView
+                android:id="@+id/evaluation_repair_lb_add_evluation"
+                style="@style/service_evluation_repair_lb"
+                android:layout_below="@+id/evaluation_repair_lb_service_evaluation"
+                android:text="追加评价：" />
+
+            <EditText
+                android:id="@+id/evaluation_repair_et_add_evluation"
+                android:layout_width="@dimen/sevice_item_et_width"
+
+                android:layout_height="@dimen/service_item_height"
+                android:layout_alignTop="@id/evaluation_repair_lb_add_evluation"
+                android:layout_toRightOf="@id/evaluation_repair_lb_add_evluation" />
+
+
+            <TextView
+                android:id="@+id/evaluation_repair_tv_info"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/evaluation_repair_et_add_evluation"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff" />
+
+
+            <TextView
+                android:id="@+id/evaluation_repair_tv_evaluate"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/evaluation_repair_tv_info"
+                android:layout_marginTop="25dp"
+             style="@style/Yellow_button"
+                android:gravity="center"
+                android:text="评价"
+                 />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

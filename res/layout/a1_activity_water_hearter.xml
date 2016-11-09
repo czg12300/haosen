@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/water_hearter_rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height">
+
+        <com.heneng.heater.views.HeaderView
+            android:id="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_header_height"
+            app:headerLeftText="电热水器"
+            app:headerTitle=""></com.heneng.heater.views.HeaderView>
+
+        <ImageView
+            android:id="@+id/water_hearter_im_menu_more"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@drawable/detail_top_more" />
+
+        <ImageView
+            android:id="@+id/water_hearter_im_menu_power"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/water_hearter_im_menu_more"
+            android:padding="8dp"
+            android:src="@drawable/hearter_selector_power" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/water_hearter_tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/water_hearter_rl_header"
+        android:gravity="center"
+        android:text="当前状态：加热1200W  本月耗电：4.5度"
+        android:textColor="@color/yellow_text"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/water_hearter_rl_info"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/water_hearter_tv_info"
+        android:layout_margin="10dp"
+        android:background="@drawable/rect_black_line"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+
+            <TextView
+                style="@style/water_hearter_title"
+                android:text="当前水温" />
+
+            <TextView
+                android:id="@+id/water_hearter_tv_curtemperature"
+                style="@style/water_hearter_content"
+
+
+                />
+
+
+            <TextView
+                style="@style/water_hearter_title"
+                android:text="剩余热水量" />
+
+            <TextView
+                android:id="@+id/water_hearter_tv_water_stay"
+                style="@style/water_hearter_content" />
+
+            <TextView
+                style="@style/water_hearter_title"
+                android:text="预计加热完成时间" />
+
+            <TextView
+                android:id="@+id/water_hearter_tv_heart_time"
+                style="@style/water_hearter_content" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <TextView
+                android:id="@+id/water_hearter_tv_temcontrol_title"
+                style="@style/water_hearter_title"
+                android:layout_centerHorizontal="true"
+                android:text="温度设置(℃)" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/water_hearter_tv_temcontrol_title"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/rect_black_line"
+                android:paddingLeft="15dp">
+
+                <ImageView
+                    android:id="@+id/water_hearter_im_temcontrol"
+                    android:layout_width="130dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/hearter_tembg" />
+
+                <TextView
+                    android:id="@+id/water_hearter_tv_cursor"
+                    android:layout_width="75dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/hearter_cursor"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:paddingRight="15dp"
+                    android:text="当前温度\n50c"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@+id/water_hearter_rl_info"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="10dp">
+
+
+        <TextView
+            android:id="@+id/water_hearter_tv_night_heat"
+            style="@style/water_hearter_icon"
+            android:layout_marginBottom="5dp"
+            android:text="夜电\n加热" />
+
+        <TextView
+            android:id="@+id/water_hearter_tv_bathnum"
+            style="@style/water_hearter_icon"
+            android:layout_alignParentRight="true"
+            android:text="晨浴" />
+
+
+        <TextView
+            android:id="@+id/water_hearter_tv_voice"
+            style="@style/water_hearter_icon"
+            android:layout_below="@+id/water_hearter_tv_night_heat"
+            android:text="静音" />
+
+        <TextView
+            android:id="@+id/water_hearter_tv_date"
+            style="@style/water_hearter_icon"
+            android:text="预约"
+            android:layout_alignBottom="@+id/water_hearter_tv_night_heat"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/water_hearter_tv_mode"
+            style="@style/water_hearter_icon"
+            android:text="模式"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/water_hearter_rl_timepicker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/water_hearter_rl_header"
+        android:background="@color/main_background"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/water_timepicker_tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="未设定预约时间"
+            android:textColor="@color/yellow_text"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:background="@drawable/rect_timepicker_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="加热开启时间（或洗浴开始时间）"
+            android:textColor="@color/yellow_text"
+            android:textSize="18sp" />
+
+        <TimePicker
+            android:id="@+id/water_timepicker_tp_start"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+
+            android:background="@drawable/rect_timepicker_bg">
+
+        </TimePicker>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rect_timepicker_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="加热结束时间（或洗浴结束）"
+            android:textColor="@color/yellow_text"
+            android:textSize="18sp" />
+
+        <TimePicker
+            android:id="@+id/water_timepicker_tp_stop"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+
+            android:background="@drawable/rect_timepicker_bg">
+
+        </TimePicker>
+
+        <TextView
+            android:id="@+id/water_timepicker_tv_save"
+            style="@style/Yellow_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="保存设置"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/water_rl_humancount"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/rect_timepicker_dialog_bg"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/water_humancount_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:text="人数设置"
+            android:textColor="#9a5508"
+            android:textSize="25sp" />
+
+        <TextView
+
+            android:id="@+id/water_bathnum_tv_two"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/water_humancount_title"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/hearter_selector_circle"
+            android:gravity="center"
+            android:text="2人"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/water_bathnum_tv_one"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/water_humancount_title"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/water_bathnum_tv_two"
+            android:background="@drawable/hearter_selector_circle"
+            android:gravity="center"
+            android:text="1人"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/water_bathnum_tv_three"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/water_humancount_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/water_bathnum_tv_two"
+            android:background="@drawable/hearter_selector_circle"
+            android:gravity="center"
+            android:text="3人"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/water_bathnum_tv_ok"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/hearter_selector_ok"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/water_bathnum_tv_cancel"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/hearter_selector_ok"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/water_rl_capacity"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/rect_timepicker_dialog_bg"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/water_capacity_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:text="容量设置"
+            android:textColor="#9a5508"
+            android:textSize="25sp" />
+
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/water_capacity_title"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/water_capacity_tv_full"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="全胆"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:id="@+id/water_capacity_tv_half"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="半胆"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/water_capacity_tv_ok"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/hearter_selector_ok"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/water_capacity_tv_cancel"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/hearter_selector_ok"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/water_rl_mode"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/rect_timepicker_dialog_bg"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/water_mode_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:text="模式设置"
+            android:textColor="#9a5508"
+            android:textSize="25sp" />
+
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/water_mode_title"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/water_mode_tv_nomal"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="普通"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:id="@+id/water_mode_tv_midtemp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/water_mode_tv_nomal"
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="中温"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:id="@+id/water_mode_tv_moringbath"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/water_mode_tv_midtemp"
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="智能/n分人"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:id="@+id/water_mode_tv_fastheat"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="速热"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/water_mode_tv_ok"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/hearter_selector_ok"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/water_mode_tv_cancel"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/hearter_selector_ok"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/water_rl_member"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/rect_timepicker_dialog_bg"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/water_mode_memberset"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:text="分人设置"
+            android:textColor="#9a5508"
+            android:textSize="25sp" />
+
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/water_mode_memberset"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/water_mode_tv_member1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="1人"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:id="@+id/water_mode_tv_member2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/water_mode_tv_member1"
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="2人"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:id="@+id/water_mode_tv_member3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/water_mode_tv_member2"
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="3人"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:id="@+id/water_mode_tv_membercan"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+
+                android:background="@drawable/hearter_selector_circle"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

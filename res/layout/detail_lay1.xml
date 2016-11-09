@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f6f3ea"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/detail_scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/circle_corner"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/detail_p1_img1"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/detail_p1" />
+
+                <TextView
+                    android:id="@+id/detail_tv_date1"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="4dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#ff6e01"
+                    android:layout_height="wrap_content"
+
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/detail_temp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:gravity="bottom"
+                    android:text="38℃"
+                    android:textColor="#ff6e01"
+                    android:textSize="40sp" />
+
+            </RelativeLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/detail_tempSetBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="365dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/circle_corner"
+                        android:paddingBottom="20dp">
+
+                        <TextView
+                            android:id="@+id/detail_temp1SetTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="15dp"
+                            android:text="卫浴温度调节"
+                            android:textColor="#ff6e01"
+                            android:textSize="16sp" />
+
+                        <fragment
+                            android:id="@+id/detail_fragment_tempset1"
+                            android:name="com.heneng.heater.lastcoder.TempFragment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="45dp" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/detail_flowBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="@drawable/circle_corner">
+
+                            <TextView
+                                android:id="@+id/detail_flowTxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="15dp"
+                                android:text="热水流量"
+                                android:textColor="#ff6e01"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:id="@+id/detail_flowBg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/detail_flowTxt"
+                                android:layout_centerInParent="true"
+                                android:layout_marginLeft="23dp"
+                                android:src="@drawable/detail_p3" />
+
+                            <TextView
+                                android:id="@+id/detail_flowNumberTxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:layout_below="@+id/detail_flowTxt"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="35dp"
+                                android:text="8"
+                                android:textColor="#ff6e01"
+                                android:textSize="40sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/detail_huoliBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/circle_corner">
+
+                            <TextView
+                                android:id="@+id/detail_huoliTxt1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="15dp"
+                                android:text="燃气火力"
+                                android:textColor="#ff6e01"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/detail_huoliNumTxt1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="45dp"
+                                android:text="80%"
+                                android:textColor="#ff6e01"
+                                android:textSize="40sp" />
+
+                            <fragment
+                                android:id="@+id/detail_huoliImg1"
+                                android:name="com.heneng.heater.lastcoder.DetaiHuoLilFragment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="100dp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_background"
+              android:orientation="vertical">
+
+    <com.heneng.heater.views.HeaderView
+        android:id="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height"
+        app:headerLeftText="返回"
+        app:headerRightText="下一步"
+        app:headerTitle="Smartconfig配置"
+        app:headerTitleTextSize="20sp"></com.heneng.heater.views.HeaderView>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="输入路由器WI-FI网络接入点名称（SSID）以及密码"
+        android:textColor="#666666"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <EditText
+            android:id="@+id/smartconfig_wifi_et_wifi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="60dp"
+            android:maxLines="1"
+            android:textColor="#666666"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="WIFI："
+            android:textColor="#666666"
+            android:textSize="15sp"
+            android:typeface="sans"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <EditText
+            android:id="@+id/smartconfig_wifi_et_psw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="60dp"
+android:maxLines="1"
+            android:textColor="#666666"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="密码："
+            android:textColor="#666666"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

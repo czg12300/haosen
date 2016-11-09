@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/circle_corner"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/fragment_stateico1"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/selector_state_dongji" />
+
+    <ImageView
+        android:id="@+id/fragment_stateico2"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/selector_state_xiaji" />
+
+    <ImageView
+        android:id="@+id/fragment_stateico3"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/state_ico3_3" />
+
+    <ImageView
+        android:id="@+id/fragment_stateico4"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/state_ico4_3" />
+
+    <ImageView
+        android:id="@+id/fragment_stateico5"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/state_ico5_3" />
+
+    <ImageView
+        android:id="@+id/fragment_stateico6"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/state_ico6_3"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/fragment_stateico7"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:src="@drawable/state_ico7_3" />
+
+</LinearLayout>

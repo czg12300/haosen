@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f6f3ea"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/detail_title"
+        android:name="com.heneng.heater.lastcoder.DetailTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <fragment
+        android:id="@+id/detail_StateIco"
+        android:name="com.heneng.heater.lastcoder.StateIcoFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/detailPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:background="#000000"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/a2" />
+
+        <ImageView
+            android:id="@+id/detail_cursor"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/btnbg3" />
+
+        <LinearLayout
+            android:id="@+id/detail_lLay1"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:id="@+id/detail_menu1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="卫浴"
+                android:textColor="@color/bottomGuide_textColor2"
+                android:textSize="20.0dp" />
+
+            <TextView
+                android:id="@+id/detail_menu2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="供暖"
+                android:textColor="#999999"
+                android:textSize="20.0dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

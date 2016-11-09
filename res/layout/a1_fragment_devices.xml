@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="#ffffff"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#fa8100"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/view_header_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/toplogo"/>
+
+        <ImageView
+            android:id="@+id/device_im_add"
+            android:layout_width="@dimen/view_header_icon_menu_size"
+            android:layout_height="@dimen/view_header_icon_menu_size"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/device_im_refress"
+            android:src="@drawable/jai"/>
+
+        <ImageView
+            android:id="@+id/device_im_refress"
+            android:layout_width="@dimen/view_header_icon_menu_size"
+            android:layout_height="@dimen/view_header_icon_menu_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/toprefresh"/>
+    </RelativeLayout>
+
+    <com.heneng.heater.views.sdlv.SlideAndDragListView
+        android:id="@+id/device_lv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/divider_color"
+        android:dividerHeight="1dp"
+        android:background="#f6f3ea"
+        >
+
+    </com.heneng.heater.views.sdlv.SlideAndDragListView>
+
+</LinearLayout>

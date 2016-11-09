@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_background"
+              android:orientation="vertical">
+
+    <com.heneng.heater.views.HeaderView
+        android:id="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height"
+        app:headerLeftText="返回"
+        app:headerTitle="设备信息">
+
+    </com.heneng.heater.views.HeaderView>
+
+        <LinearLayout
+            style="@style/edit_device_item_ll"
+            android:layout_marginTop="25dp">
+
+            <TextView
+                style="@style/edit_device_item_label"
+                android:text="设备名称:"
+                />
+
+            <EditText
+                android:id="@+id/edit_device_et_name"
+                style="@style/edit_device_item_et"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/edit_device_item_ll">
+
+            <TextView
+                style="@style/edit_device_item_label"
+                android:text="经销商:"
+                />
+
+            <EditText
+                android:id="@+id/edit_device_et_dealer"
+                style="@style/edit_device_item_et"
+                android:enabled="false"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/edit_device_item_ll">
+
+            <TextView
+                style="@style/edit_device_item_label"
+                android:text="所在省市:"
+                />
+
+            <EditText
+                android:id="@+id/edit_device_et_province"
+                style="@style/edit_device_item_et"
+                android:enabled="false"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/edit_device_item_ll">
+
+            <TextView
+                style="@style/edit_device_item_label"
+                android:text="所在地市:"
+                />
+
+            <EditText
+                android:id="@+id/edit_device_et_city"
+                style="@style/edit_device_item_et"
+                android:enabled="false"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/edit_device_item_ll"
+            >
+
+            <TextView
+                style="@style/edit_device_item_label"
+                android:text="所在县区:"
+                />
+
+            <EditText
+                android:id="@+id/edit_device_et_town"
+                style="@style/edit_device_item_et"
+                android:enabled="false"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/edit_device_item_ll">
+
+            <TextView
+                style="@style/edit_device_item_label"
+                android:text="详细地址:"
+                />
+
+            <EditText
+                android:id="@+id/edit_device_et_address"
+                style="@style/edit_device_item_et"
+                android:enabled="false"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/edit_device_item_ll">
+
+            <TextView
+                style="@style/edit_device_item_label"
+                android:text="机主姓名:"
+                />
+
+            <EditText
+                android:id="@+id/edit_device_et_owener"
+                style="@style/edit_device_item_et"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/edit_device_item_ll">
+
+            <TextView
+                style="@style/edit_device_item_label"
+                android:text="机主电话:"
+                />
+
+            <EditText
+                android:id="@+id/edit_device_et_phone"
+                style="@style/edit_device_item_et"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/edit_device_tv_submit"
+            style="@style/Yellow_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="20dp"
+            android:text="提交"
+            />
+
+</LinearLayout>

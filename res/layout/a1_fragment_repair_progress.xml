@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/progress_repair_lb_company"
+                style="@style/service_send_repair_lb"
+                android:text="售后公司："/>
+
+
+            <EditText
+                android:id="@+id/progress_repair_et_company_name"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@+id/progress_repair_lb_company"
+                android:layout_toRightOf="@+id/progress_repair_lb_company"/>
+
+            <TextView
+                android:id="@+id/progress_repair_lb_company_phone"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/progress_repair_lb_company"
+                android:text="公司电话："/>
+
+            <EditText
+                android:id="@+id/progress_repair_et_company_phone"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@id/progress_repair_lb_company_phone"
+                android:layout_toRightOf="@id/progress_repair_lb_company_phone"/>
+
+
+            <TextView
+                android:id="@+id/progress_repair_lb_progress"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/progress_repair_lb_company_phone"
+                android:text="当前进度："/>
+
+            <EditText
+                android:id="@+id/progress_repair_et_progress"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:enabled="false"
+                android:layout_height="@dimen/service_item_height"
+                android:layout_alignTop="@id/progress_repair_lb_progress"
+                android:layout_toRightOf="@id/progress_repair_lb_progress"/>
+
+            <TextView
+                android:id="@+id/progress_repair_lb_human"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/progress_repair_et_progress"
+                android:text="维修人员："/>
+
+            <EditText
+                android:id="@+id/progress_repair_et_human"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@id/progress_repair_lb_human"
+                android:layout_toRightOf="@id/progress_repair_lb_human"/>
+
+            <TextView
+                android:id="@+id/progress_repair_lb_phone"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/progress_repair_et_human"
+                android:text="联系电话："/>
+
+            <EditText
+                android:id="@+id/progress_repair_et_phone"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_height="@dimen/service_item_height"
+                android:layout_alignTop="@id/progress_repair_lb_phone"
+                android:layout_toRightOf="@id/progress_repair_lb_phone"/>
+
+            <TextView
+                android:id="@+id/progress_repair_lb_desc"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/progress_repair_lb_phone"
+                android:text="处理说明："/>
+
+            <EditText
+                android:id="@+id/progress_repair_et_desc"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:enabled="false"
+                android:focusable="false"
+                android:layout_alignTop="@id/progress_repair_lb_desc"
+                android:layout_toRightOf="@id/progress_repair_lb_desc"/>
+
+
+            <TextView
+                android:id="@+id/progress_repair_tv_info"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/progress_repair_et_desc"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"/>
+
+
+            <TextView
+                android:id="@+id/progress_repair_tv_close"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/progress_repair_tv_info"
+                android:layout_marginTop="25dp"
+               style="@style/Yellow_button"
+                android:text="关闭"
+               />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

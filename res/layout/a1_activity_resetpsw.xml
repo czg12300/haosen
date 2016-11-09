@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/reset_psw_background"
+              android:orientation="vertical">
+
+    <com.heneng.heater.views.HeaderView
+        android:id="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height"
+        app:headerLeftText="返回"
+        app:headerTitle="修改密码"></com.heneng.heater.views.HeaderView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="新密码："
+            android:textColor="@color/label_text_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+        <EditText
+            android:id="@+id/repsw_et_psw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/reset_psw_background"
+            android:hint="请输入密码"
+            android:textColorHint="@color/label_hit_color"
+            android:textColor="@color/label_text_color"
+            android:inputType="textPassword"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/divider_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="确认密码："
+            android:textColor="@color/label_text_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+        <EditText
+            android:id="@+id/repsw_et_confirm_psw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/reset_psw_background"
+            android:hint="请确认密码"
+            android:textColorHint="@color/label_hit_color"
+            android:textColor="@color/label_text_color"
+            android:inputType="textPassword"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/divider_color"/>
+
+    <TextView
+        android:id="@+id/repsw_tv_confirm"
+        style="@style/Yellow_button"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:text="修改"/>
+
+
+</LinearLayout>

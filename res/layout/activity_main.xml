@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_box"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+
+    <com.heneng.heater.lastcoder.common.MyViewPager
+        android:id="@+id/mainPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:background="#000000"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fa8100">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/a2" />
+
+        <ImageView
+            android:id="@+id/main_cursor"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/main_menu_height"
+            android:scaleType="fitXY"
+            android:src="@drawable/btnbg3" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/main_menu_height"
+            android:paddingTop="5dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:id="@+id/main_menu1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:drawableTop="@drawable/menu_device_selector"
+
+                android:text="设备"
+                android:textColor="@color/bottomGuide_textColor2"
+                android:textSize="@dimen/main_menu_textsize" />
+
+            <TextView
+                android:id="@+id/main_menu2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:drawableTop="@drawable/menu_message_selector"
+                android:text="消息"
+                android:textColor="@color/bottomGuide_textColor1"
+                android:textSize="@dimen/main_menu_textsize" />
+
+            <TextView
+                android:id="@+id/main_menu3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:drawableTop="@drawable/menu_service_selector"
+                android:text="售后"
+                android:textColor="@color/bottomGuide_textColor1"
+                android:textSize="@dimen/main_menu_textsize" />
+
+            <TextView
+                android:id="@+id/main_menu4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:drawableTop="@drawable/menu_setting_selector"
+                android:text="设置"
+                android:textColor="@color/bottomGuide_textColor1"
+                android:textSize="@dimen/main_menu_textsize" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

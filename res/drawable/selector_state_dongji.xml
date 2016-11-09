@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 触摸模式下单击时的背景图片 -->
+
+    <item android:drawable="@drawable/state_ico1_1" android:state_pressed="true"></item>
+    <item android:drawable="@drawable/state_ico1_1" android:state_selected="true"></item>
+    <item android:drawable="@drawable/state_ico1_3"></item>
+
+</selector>

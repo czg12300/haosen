@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_header_height"
+                android:layout_gravity="center_vertical"
+               android:background="#fa8100">
+
+    <TextView
+        android:id="@+id/header_tv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:drawableLeft="@drawable/return_pre"
+        android:gravity="center"
+        android:text="左边"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/view_header_titlesize"/>
+
+    <TextView
+        android:id="@+id/header_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/view_header_titlesize"/>
+
+    <TextView
+        android:id="@+id/header_tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:paddingRight="8dp"
+        android:text="右边"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/view_header_titlesize"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 灰色边框  长方体  最后一格样式-->  
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">      
+    
+    <!-- 主体背景颜色值 -->
+    <item>
+        <shape>
+            <solid android:color="#f6f3ea" />
+        </shape>
+    </item>
+    
+</layer-list>  

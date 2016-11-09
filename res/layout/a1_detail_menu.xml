@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="@dimen/detail_top_menu_width"
+              android:layout_height="@dimen/detail_top_menu_height"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/detail_top_menu_width"
+        android:layout_height="@dimen/detail_top_menu_height"
+        android:background="@drawable/detail_menu_bg"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/detail_menu_refress"
+            style="@style/detail_top_menu_item"
+            android:drawableLeft="@drawable/submenu_refress"
+            android:layout_marginTop="10dp"
+            android:text="刷新"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/detail_menu_divider"/>
+
+        <TextView
+            android:id="@+id/detail_menu_edit"
+            style="@style/detail_top_menu_item"
+            android:drawableLeft="@drawable/submenu_edit"
+            android:text="信息修改"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/detail_menu_divider"/>
+        <TextView
+            android:id="@+id/detail_menu_smartconfig"
+            style="@style/detail_top_menu_item"
+            android:drawableLeft="@drawable/submenu_smartconfig"
+            android:textSize="12sp"
+            android:text="SmartConfig"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/detail_menu_divider"/>
+        <TextView
+            android:id="@+id/detail_menu_repair"
+            style="@style/detail_top_menu_item"
+            android:drawableLeft="@drawable/submenu_repair"
+            android:text="故障报修"/>
+    </LinearLayout>
+</LinearLayout>

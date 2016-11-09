@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_background"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height">
+
+        <com.heneng.heater.views.HeaderView
+            android:id="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_header_height"
+            app:headerTitle="消息中心">
+
+        </com.heneng.heater.views.HeaderView>
+
+        <ImageView
+            android:id="@+id/message_im_menu_refress"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@drawable/toprefresh"/>
+
+        <TextView
+            android:id="@+id/message_tv_menu_new"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/message_im_menu_refress"
+            android:padding="8dp"
+            android:text="(15)"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:gravity="center"
+            />
+
+    </RelativeLayout>
+
+    <com.heneng.heater.views.listview.extend.PullToRefreshListView
+        android:id="@+id/messages_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        android:divider="@color/divider_color"
+        android:dividerHeight="1dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+    </com.heneng.heater.views.listview.extend.PullToRefreshListView>
+
+
+</LinearLayout>

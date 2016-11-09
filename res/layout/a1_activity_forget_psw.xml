@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/reset_psw_background"
+              android:orientation="vertical">
+
+    <com.heneng.heater.views.HeaderView
+        android:id="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_header_height"
+        app:headerLeftText="返回"
+        app:headerTitle="忘记密码"></com.heneng.heater.views.HeaderView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="手机号码："
+            android:textColor="@color/label_text_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+        <EditText
+            android:id="@+id/foget_psw_et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/reset_psw_background"
+            android:hint="请输入你的手机号码"
+            android:inputType="number"
+            android:textColor="@color/label_text_color"
+            android:textColorHint="@color/label_hit_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/divider_color"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="新密码："
+            android:textColor="@color/label_text_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+        <EditText
+            android:id="@+id/forget_psw_et_psw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/reset_psw_background"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textColor="@color/label_text_color"
+            android:textColorHint="@color/label_hit_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/divider_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="确认密码："
+            android:textColor="@color/label_text_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+        <EditText
+            android:id="@+id/forget_psw_et_confirm_psw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/reset_psw_background"
+            android:hint="请确认密码"
+            android:inputType="textPassword"
+            android:textColor="@color/label_text_color"
+            android:textColorHint="@color/label_hit_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/divider_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="短信验证码:"
+            android:textColor="@color/label_text_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+        <EditText
+            android:id="@+id/foget_psw_et_code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@color/reset_psw_background"
+            android:hint="请确认验证码"
+            android:inputType="number"
+            android:textColor="@color/label_text_color"
+            android:textColorHint="@color/label_hit_color"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+        <TextView
+            android:id="@+id/foget_psw_tv_get_code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="获取验证码"
+            android:textColor="@color/yellow_text"
+            android:textSize="@dimen/reset_psw_textsize"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/divider_color"/>
+
+    <TextView
+        android:id="@+id/foget_psw_tv_next"
+        style="@style/Yellow_button"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:text="确定"/>
+
+
+</LinearLayout>

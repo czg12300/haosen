@@ -1,0 +1,59 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_background">
+
+
+    <RelativeLayout
+        android:id="@+id/device_item_rl_content"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@color/main_background"
+        android:padding="5dp"><!-- android:layout_toRightOf="@+id/vlistitem_btnbox" -->
+
+        <ImageView
+            android:id="@+id/device_item_im_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/equiment"/>
+
+        <TextView
+            android:id="@+id/device_item_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/device_item_im_icon"
+            android:text="设备名称名字就是那么长，就是这么长"
+            android:maxEms="9"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#555555"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:id="@+id/device_item_im_online"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/device_item_im_power"
+            android:src="@drawable/online0"/>
+
+        <ImageView
+            android:id="@+id/device_item_im_power"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/hearter_selector_power"/>
+
+    </RelativeLayout>
+</RelativeLayout>

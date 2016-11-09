@@ -1,0 +1,61 @@
+<RelativeLayout android:id="@+id/topbarBase"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="#fa8100"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+    <TextView
+        android:id="@+id/detailTop_equiName"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="设备名就是那么长长的很长很长的呢"
+        android:maxEms="6"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="18sp"
+        android:textColor="#ffffff"/>
+
+    <ImageView
+        android:id="@+id/detailTop_return"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/return2"/>
+
+    <ImageView
+        android:id="@+id/detailTop_online"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="0dp"
+        android:layout_toLeftOf="@+id/detailTop_onOff"
+        android:padding="5dp"
+        android:src="@drawable/hearter_selector_wifi"/>
+
+    <ImageView
+        android:id="@+id/detailTop_onOff"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/detailTop_more"
+        android:src="@drawable/hearter_selector_power"/>
+
+
+    <ImageView
+        android:id="@+id/detailTop_more"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:padding="8dp"
+        android:src="@drawable/detail_top_more"/>
+
+
+</RelativeLayout>

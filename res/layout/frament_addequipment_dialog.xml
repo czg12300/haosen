@@ -1,0 +1,114 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"   
+   	android:background="@drawable/circle_corner"
+    >
+
+
+	<TextView
+	    android:id="@+id/addEquipmentDialog_title"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginLeft="5dp"
+	    android:layout_marginTop="10dp"
+	    android:text="添加设备"
+	    android:textColor="#ff6e01"
+	    android:textSize="18sp" />
+
+    <RelativeLayout
+        android:id="@+id/addEquipmentDialog_contentBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="45dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp" >
+
+            <TextView                
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="条形码："
+                android:textColor="#333333"
+                android:textSize="16sp" />
+			          
+			<EditText
+			    android:id="@+id/addEquipmentDialog_barcode"
+			    android:layout_width="170dp"
+			    android:layout_height="wrap_content"
+			    android:text="0000000000000" 
+			    android:textColor="#555555"
+			    android:singleLine="true"
+			    android:enabled="false"
+			    >
+		
+            </EditText>
+        </LinearLayout>
+		<LinearLayout
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dp"
+	            android:layout_marginTop="50dp" >
+	        <TextView                
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备名："
+                android:textColor="#333333"
+                android:textSize="16sp" />
+	        
+	        <EditText
+                android:id="@+id/addEquipmentDialog_ename"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="请填写显示名称"            
+            	android:textColor="#555555"
+            	android:textColorHint="#cccccc"
+                 >
+
+                <requestFocus />
+            </EditText>
+	    </LinearLayout>
+	    
+	    <LinearLayout android:layout_width="wrap_content" 
+	        android:layout_height="wrap_content" 
+	        android:gravity="center"
+	        android:layout_marginTop="135dp"
+	        >
+	
+	        <Button
+	            android:id="@+id/addEquipmentDialog_submit"
+	            android:layout_width="110dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:background="@drawable/selector_btnbg"
+	            android:text="添加"
+	            android:textColor="#ffffff"
+	            android:textSize="18sp" />
+	
+	        <Button
+	            android:id="@+id/addEquipmentDialog_cancel"
+	            android:layout_width="110dp"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/selector_btnbg"
+	            android:text="取消" 
+	            android:textColor="#ffffff"
+	            android:textSize="18sp" 
+	            android:layout_margin="5dp"
+	            />
+	
+	    </LinearLayout>
+    
+    </RelativeLayout>
+
+    
+        
+</RelativeLayout>

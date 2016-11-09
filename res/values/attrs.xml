@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="HeaderView">
+        <attr name="headerTitle" format="string"/>
+        <attr name="headerTitleTextSize" format="reference|dimension"/>
+        <attr name="headerLeftText" format="string|reference"/>
+        <attr name="headerRightText" format="string|reference"/>
+    </declare-styleable>
+    <declare-styleable name="SettingItem">
+        <attr name="settingItemTitle" format="string"/>
+        <attr name="settingItemSubTitle" format="string"/>
+        <attr name="settingItemIcon" format="reference"/>
+        <attr name="settingItemAccessory" format="reference"/>
+    </declare-styleable>
+</resources>

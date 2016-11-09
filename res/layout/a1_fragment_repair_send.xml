@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/send_repair_lb_name"
+                style="@style/service_send_repair_lb"
+                android:text="设备名称："/>
+
+
+            <Spinner
+                android:id="@+id/send_repair_sp_name"
+                android:layout_width="216dp"
+                android:layout_marginLeft="2dp"
+                android:layout_height="35dp"
+                android:layout_alignTop="@+id/send_repair_lb_name"
+                android:layout_toRightOf="@+id/send_repair_lb_name"
+                android:background="@drawable/editview_style_bg"
+                android:paddingLeft="10dp"/>
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignRight="@+id/send_repair_sp_name"
+                android:layout_alignTop="@+id/send_repair_sp_name"
+                android:padding="10dp"
+                android:src="@drawable/arrow2"/>
+
+
+            <TextView
+                android:id="@+id/send_repair_lb_code"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/send_repair_lb_name"
+                android:text="  故   障  ："/>
+
+            <Spinner
+                android:id="@+id/send_repair_sp_code"
+                android:layout_width="216dp"
+                android:layout_marginLeft="2dp"
+                android:layout_height="35dp"
+                android:layout_alignTop="@id/send_repair_lb_code"
+                android:layout_toRightOf="@id/send_repair_lb_code"
+                android:background="@drawable/editview_style_bg"
+                android:paddingLeft="10dp"/>
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignRight="@+id/send_repair_sp_code"
+                android:layout_alignTop="@+id/send_repair_sp_code"
+                android:padding="10dp"
+                android:src="@drawable/arrow2"/>
+
+            <TextView
+                android:id="@+id/send_repair_lb_address"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/send_repair_lb_code"
+                android:text="详细地址："
+                />
+
+            <EditText
+                android:id="@+id/send_repair_et_address"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:layout_alignTop="@id/send_repair_lb_address"
+                android:layout_toRightOf="@id/send_repair_lb_address"
+                android:maxLength="100"/>
+
+            <TextView
+                android:id="@+id/send_repair_lb_human"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/send_repair_et_address"
+                android:text="联系人："/>
+
+            <EditText
+                android:id="@+id/send_repair_et_human"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:layout_alignTop="@id/send_repair_lb_human"
+                android:layout_toRightOf="@id/send_repair_lb_human"
+                android:maxLength="50"/>
+
+            <TextView
+                android:id="@+id/send_repair_lb_phone"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/send_repair_et_human"
+                android:text="联系电话："/>
+
+            <EditText
+                android:id="@+id/send_repair_et_phone"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="@dimen/service_item_height"
+                android:layout_alignTop="@id/send_repair_lb_phone"
+                android:layout_toRightOf="@id/send_repair_lb_phone"
+                android:inputType="phone"
+                android:maxLength="50"/>
+
+            <TextView
+                android:id="@+id/send_repair_lb_desc"
+                style="@style/service_send_repair_lb"
+                android:layout_below="@+id/send_repair_lb_phone"
+                android:text="故障描述："/>
+
+            <EditText
+                android:id="@+id/send_repair_et_desc"
+                android:layout_width="@dimen/sevice_item_et_width"
+                android:layout_height="100dp"
+                android:layout_alignTop="@id/send_repair_lb_desc"
+                android:layout_toRightOf="@id/send_repair_lb_desc"
+                android:maxLength="500"/>
+
+
+            <TextView
+                android:id="@+id/send_repair_tv_commit"
+                style="@style/Yellow_button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/send_repair_et_desc"
+                android:text="提交"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
