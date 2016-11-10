@@ -45,7 +45,7 @@
         android:layout_below="@+id/smartconfig_ll_center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="请长按按钮5秒钟以上，绿灯快速闪烁时放开手指，如果红灯闪烁，表示WIFI密码输入有误，请返回重新输入。"
+        android:text="请输入WIFI网络密码后，长按两用炉的配置开关，看到液晶屏上的WIFI图标闪动时再按“下一步”，当WIFI图标停止闪动并长亮时，表示WIFI已配置成功，可以点击“停止设置”并返回主界面。"
         android:textColor="#000000"
         android:textSize="15sp"/>
 

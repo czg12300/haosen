@@ -246,7 +246,7 @@ public class DevicesFragment extends BaseNetFragment implements View.OnClickList
             holder.im_power.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    switchPowerStae((ImageView) v, device);
+//                    switchPowerStae((ImageView) v, device);
                 }
             });
 
