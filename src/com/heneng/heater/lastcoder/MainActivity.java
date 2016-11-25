@@ -72,6 +72,10 @@ public class MainActivity extends FragmentActivity implements NetUtils.NetCallba
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!AppAplication.isGoLogin()) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
         setContentView(R.layout.activity_main);
 
         mainBox = (LinearLayout) findViewById(R.id.main_box);

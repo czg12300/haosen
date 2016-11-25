@@ -35,11 +35,25 @@ public class AppAplication extends Application {
 
     //用于详细界面点击故障提交跳转到故障页
     public boolean _isJumpToReapirFragment;
+    private static boolean isGoLogin = false;
+    private static AppAplication mAppAplication;
 
+    public static boolean isGoLogin() {
+        return isGoLogin;
+    }
+
+    public static void setIsGoLogin(boolean isGoLogin) {
+        AppAplication.isGoLogin = isGoLogin;
+    }
+
+    public static AppAplication getInstance() {
+        return mAppAplication;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mAppAplication = this;
     }
 
     /**

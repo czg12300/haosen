@@ -63,7 +63,7 @@ public class LoginActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        AppAplication.setIsGoLogin(true);
         username = (EditText) this.findViewById(R.id.login_username);
         userpwd = (EditText) this.findViewById(R.id.login_password);
         autologin = (CheckBox) this.findViewById(R.id.login_autoLogin);

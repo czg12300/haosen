@@ -13,6 +13,7 @@ import android.view.View;
 import com.heneng.heater.R;
 import com.heneng.heater.lastcoder.AppAplication;
 import com.heneng.heater.lastcoder.LoadingFragment;
+import com.heneng.heater.lastcoder.LoginActivity;
 import com.heneng.heater.views.HeaderView;
 import com.heneng.heater.views.LoadingDialog;
 
@@ -72,6 +73,10 @@ public abstract class BaseActivity extends Activity {
                     mBaseActivity.finish();
                 }
             });
+        }
+        if (!AppAplication.isGoLogin()) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
     }
 
