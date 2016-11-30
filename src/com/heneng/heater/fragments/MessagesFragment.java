@@ -246,7 +246,7 @@ public class MessagesFragment extends BaseFragment implements NetUtils.NetCallba
 
             ResultMessage message = _messages.get(i);
             Picasso.with(mContext).setLoggingEnabled(true);
-            Picasso.with(mContext).load(message.getSmallImage()).error(R.drawable.ic_launcher).into(hodler.im_shortcut);
+            Picasso.with(mContext).load(message.getSmallImage()).placeholder(R.drawable.ic_launcher).error(R.drawable.ic_launcher).into(hodler.im_shortcut);
             String strTime = "1分钟前";
             try {
 
