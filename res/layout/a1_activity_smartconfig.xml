@@ -44,7 +44,7 @@
         android:layout_marginTop="30dp"
         android:lineSpacingExtra="3dp"
         android:lineSpacingMultiplier="1.0"
-        android:text="请长按按钮5秒钟以上，绿灯快速闪烁时放开手指，如果红灯闪烁，表示WIFI密码输入有误，请返回重新输入。"
+        android:text="@string/smartconfig_tips"
         android:textColor="#000000"
         android:textSize="18sp" />
 

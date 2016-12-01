@@ -47,4 +47,5 @@
     <string name="switchIsSsidHiddenTitle">SSID is Hidden</string>
     <string name="spinnerTaskResultCountTitle">Task result count</string>
     <string name="btnConfirmTitle">Confirm</string>
+    <string name="smartconfig_tips">请输入WIFI网络密码后，长按两用炉的配置开关，看到液晶屏上的WIFI图标闪动时再按“下一步”，当WIFI图标停止闪动并长亮时，表示WIFI已配置成功，可以点击“停止设置”并返回主界面。</string>
 </resources>
