@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -246,7 +247,7 @@ public class DevicesFragment extends BaseNetFragment implements View.OnClickList
             holder.im_power.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    switchPowerStae((ImageView) v, device);
+                    switchPowerStae((ImageView) v, device);
                 }
             });
 
@@ -326,18 +327,32 @@ public class DevicesFragment extends BaseNetFragment implements View.OnClickList
      */
     private void switchPowerStae(ImageView v, ResultDeviceList.Device device) {
         _app._chooseDevice = device;
-        int onoff = "1".equals(device.getOnoff()) ? 0 : 1;
+        String onoff = TextUtils.equals("1", device.getOnoff()) ? "0" : "1";
         Map<String, Object> params = getParamsMap();
         params.put("uc", UserInfo.UserCode);
-        params.put("user", UserInfo.ID);
         params.put("eid", device.getEID());
         params.put("onoff", onoff);
         if ("0".equals(device.getOnLine())) {
             Toast.makeText(mContext, "这个设备不在线", Toast.LENGTH_SHORT).show();
         } else {
-            NetUtils.executGet(mContext, Constants.CODE_SET_ONOFF, "Com_SetOnOff", params, ResultDetail.class);
+            NetUtils.executGet(mContext, Constants.CODE_SET_ONOFF, _app._chooseDevice.getInterface(), "Com_SetOnOff_DRL", params, ResultDetail.class);
             v.setSelected(!v.isSelected());
         }
+
+
+//        int onoff = "1".equals(device.getOnoff()) ? 0 : 1;
+//        Map<String, Object> params = getParamsMap();
+//        params.put("uc", UserInfo.UserCode);
+//        params.put("user", UserInfo.ID);
+//        params.put("eid", device.getEID());
+//        params.put("onoff", onoff);
+//        if ("0".equals(device.getOnLine())) {
+//            Toast.makeText(mContext, "这个设备不在线", Toast.LENGTH_SHORT).show();
+//        } else {
+//            NetUtils.executGet(mContext, Constants.CODE_SET_ONOFF,_app._chooseDevice.getInterface(), "Com_SetOnOff", params, ResultDetail.class);
+//            v.setSelected(!v.isSelected());
+//        }
+
 
     }
 
