@@ -60,7 +60,7 @@ public class SmartConfigActivity extends BaseActivity {
             if (msg.what == WHAT_GET_SOCKET) {
                 String messgae = (String) msg.obj;
                 LogUtils.e("收到8899端口信息：" + messgae);
-
+                Toast.makeText(mBaseActivity, "收到8899端口信息：" + messgae, Toast.LENGTH_SHORT).show();
                 String successMsgPart = "success";
                 if (messgae != null && messgae.toLowerCase().contains(successMsgPart)) {
                     Toast.makeText(mBaseActivity, "配置成功", Toast.LENGTH_SHORT).show();
@@ -119,7 +119,7 @@ public class SmartConfigActivity extends BaseActivity {
 
 
         smartConfig(_ssid, _psw);
-        startAp();
+        startAp(_ssid, _psw);
         toSetCount();
 
     }
@@ -158,7 +158,7 @@ public class SmartConfigActivity extends BaseActivity {
                         message.what = WHAT_GET_SOCKET;
                         message.obj = msg;
 //                        mHandler.sendMessage(message);
-                        mHandler.sendMessageDelayed(message,5000);
+                        mHandler.sendMessageDelayed(message, 5000);
 
                     }
                 });
@@ -181,7 +181,14 @@ public class SmartConfigActivity extends BaseActivity {
 
 
     class ApThread extends Thread {
+        private String ssid;
+        private String psw;
         boolean isRun = true;
+
+        public ApThread(String ssid, String psw) {
+            this.ssid = ssid;
+            this.psw = psw;
+        }
 
         public void close() {
             isRun = false;
@@ -190,17 +197,16 @@ public class SmartConfigActivity extends BaseActivity {
         @Override
         public void run() {
 
-            String SSID = "HS_WifiStove";
             WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
             WifiConnect wifi = new WifiConnect(wifiManager);
 
 
-            int netID = wifi.Connect(SSID, "", WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
+            int netID = wifi.Connect(ssid, psw, WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
             LogUtils.e(" 添加wifi得到ID：" + netID);
 
 
             if (netID != -1) {
-                if (connect(SSID, wifiManager, netID)) {
+                if (connect(ssid, wifiManager, netID)) {
 
                     try {
                         Thread.sleep(2000);
@@ -231,15 +237,14 @@ public class SmartConfigActivity extends BaseActivity {
 //                    netID = wifi.Connect(_ssid, _psw, WifiConnect.WifiCipherType.WIFICIPHER_WPA);
                     WifiConfiguration wifiConfiguration = wifi.IsExsits(_ssid);
 
-                    if(wifiConfiguration!=null){
+                    if (wifiConfiguration != null) {
 
-                        netID =wifiConfiguration.networkId;
+                        netID = wifiConfiguration.networkId;
                         wifiManager.enableNetwork(netID, true);
 
-                    }else{
-                        LogUtils.e("没有这个网络ID:"+_ssid);
+                    } else {
+                        LogUtils.e("没有这个网络ID:" + _ssid);
                     }
-
 
 
                 }
@@ -292,9 +297,12 @@ public class SmartConfigActivity extends BaseActivity {
 
     /**
      * 开始AP模式
+     *
+     * @param _ssid
+     * @param _psw
      */
-    private void startAp() {
-        _apThread = new ApThread();
+    private void startAp(String _ssid, String _psw) {
+        _apThread = new ApThread(_ssid, _psw);
         _apThread.start();
     }
 
