@@ -1,8 +1,11 @@
 package com.heneng.heater.activitys;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
@@ -12,6 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,10 +26,12 @@ import com.heneng.heater.esptouch.IEsptouchListener;
 import com.heneng.heater.esptouch.IEsptouchResult;
 import com.heneng.heater.esptouch.IEsptouchTask;
 import com.heneng.heater.esptouch.demo_activity.EspWifiAdminSimple;
+import com.heneng.heater.esptouch.task.EsptouchTaskParameter;
 import com.heneng.heater.lastcoder.DetailActivity;
 import com.heneng.heater.lastcoder.MainActivity;
 import com.heneng.heater.utils.Constants;
 import com.heneng.heater.utils.LogUtils;
+import com.heneng.heater.utils.ReceiverActions;
 import com.heneng.heater.utils.TCPUtils;
 import com.heneng.heater.utils.UDPUtils;
 import com.heneng.heater.utils.WifiConnect;
@@ -53,6 +59,7 @@ public class SmartConfigActivity extends BaseActivity {
     String _ssid;
     String _psw;
     WifiManager.MulticastLock _multicastLock;
+    private static final String SUCCESS_MSG_PART = "success";
     static final int WHAT_GET_SOCKET = 1001;
     private Handler mHandler = new Handler() {
         @Override
@@ -60,26 +67,67 @@ public class SmartConfigActivity extends BaseActivity {
             if (msg.what == WHAT_GET_SOCKET) {
                 String messgae = (String) msg.obj;
                 LogUtils.e("收到8899端口信息：" + messgae);
-                Toast.makeText(mBaseActivity, "收到8899端口信息：" + messgae, Toast.LENGTH_SHORT).show();
-                String successMsgPart = "success";
-                if (messgae != null && messgae.toLowerCase().contains(successMsgPart)) {
-                    Toast.makeText(mBaseActivity, "配置成功", Toast.LENGTH_SHORT).show();
-                    stopConfig();
-                    stopAp();
-                    stopCount();
-                    openActivity(DetailActivity.class);
+
+                if (messgae != null && messgae.toLowerCase().contains(SUCCESS_MSG_PART)) {
+                    showMsg("配置成功");
+                    stopAllConfig();
+                    sendBroadcast(new Intent(ReceiverActions.ACTION_FINISH_SMART_CONFIG));
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            openActivity(DetailActivity.class);
+                        }
+                    }, 100);
+
                 }
             }
 
         }
     };
+    private BroadcastReceiver mReceiver;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (TextUtils.equals(ReceiverActions.ACTION_FINISH_SMART_CONFIG, intent.getAction())) {
+                    finish();
+                }
+            }
+        };
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ReceiverActions.ACTION_FINISH_SMART_CONFIG);
+        registerReceiver(mReceiver, filter);
+    }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mReceiver != null) {
+            unregisterReceiver(mReceiver);
+        }
+        stopAllConfig();
+    }
+
+    private void stopAllConfig() {
+        stopListenPort();
+        stopCount();
         stopAp();
         stopConfig();
+    }
+
+    private void showMsg(final String msg) {
+
+        mHandler.post(new Runnable() {
+
+            @Override
+            public void run() {
+                Toast.makeText(mBaseActivity, msg, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -94,7 +142,7 @@ public class SmartConfigActivity extends BaseActivity {
                 builder.setMessage("是否停止").setTitle("提示").setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        stopConfig();
+                        stopAllConfig();
                         finish();
                     }
                 }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -119,7 +167,8 @@ public class SmartConfigActivity extends BaseActivity {
 
 
         smartConfig(_ssid, _psw);
-        startAp(_ssid, _psw);
+        startAp();
+        listenPort();
         toSetCount();
 
     }
@@ -144,28 +193,39 @@ public class SmartConfigActivity extends BaseActivity {
      * 监听端口
      */
     private void listenPort() {
-        if (_listenThread != null && _listenThread.isAlive()) {
-            _listenThread.interrupt();
-        }
+        stopListenPort();
         _listenThread = new Thread(new Runnable() {
+
             @Override
             public void run() {
                 _multicastLock.acquire();
                 UDPUtils.listenPort(8899, new UDPUtils.UDPListener() {
-                    @Override
-                    public void onCompleted(String msg) {
-                        Message message = mHandler.obtainMessage();
-                        message.what = WHAT_GET_SOCKET;
-                        message.obj = msg;
-//                        mHandler.sendMessage(message);
-                        mHandler.sendMessageDelayed(message, 5000);
+                            private boolean isSuccess = false;
 
-                    }
-                });
+                            @Override
+                            public void onCompleted(String msg) {
+                                if (msg != null && msg.toLowerCase().contains(SUCCESS_MSG_PART) && !isSuccess) {
+                                    Message message = mHandler.obtainMessage();
+                                    message.what = WHAT_GET_SOCKET;
+                                    message.obj = msg;
+                                    mHandler.sendMessage(message);
+                                    isSuccess = true;
+                                }
+                            }
+                        }
+                );
                 _multicastLock.release();
             }
-        });
+        }
+
+        );
         _listenThread.start();
+    }
+
+    private void stopListenPort() {
+        if (_listenThread != null && _listenThread.isAlive()) {
+            _listenThread.interrupt();
+        }
     }
 
 
@@ -181,14 +241,7 @@ public class SmartConfigActivity extends BaseActivity {
 
 
     class ApThread extends Thread {
-        private String ssid;
-        private String psw;
         boolean isRun = true;
-
-        public ApThread(String ssid, String psw) {
-            this.ssid = ssid;
-            this.psw = psw;
-        }
 
         public void close() {
             isRun = false;
@@ -197,57 +250,59 @@ public class SmartConfigActivity extends BaseActivity {
         @Override
         public void run() {
 
+            String SSID = "HS_WifiStove";
             WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
             WifiConnect wifi = new WifiConnect(wifiManager);
 
+            int netID = wifi.Connect(SSID, "", WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
+            while (netID == -1 && count > 0) {
+                netID = wifi.Connect(SSID, "", WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
+                try {
+                    Thread.sleep(2 * 1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connect(SSID, wifiManager, netID)) {
 
-            int netID = wifi.Connect(ssid, psw, WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
-            LogUtils.e(" 添加wifi得到ID：" + netID);
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
+                byte[] msgByte = new byte[64];
+                msgByte[1] = 0x00;
+                byte[] ssid = _ssid.getBytes();
+                for (int i = 0; i < ssid.length; i++) {
+                    msgByte[i + 1] = ssid[i];
+                }
+                byte[] psw = _psw.getBytes();
+                for (int i = 0; i < psw.length; i++) {
+                    msgByte[i + 33] = psw[i];
+                }
 
-            if (netID != -1) {
-                if (connect(ssid, wifiManager, netID)) {
+//                    listenPort();
 
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                LogUtils.e("AP发送数据：" + new String(msgByte));
+                TCPUtils.sendMsg(Constants.AP_IP, Constants.AP_PORT, msgByte);
 
-                    byte[] msgByte = new byte[64];
-                    msgByte[1] = 0x00;
-                    byte[] ssid = _ssid.getBytes();
-                    for (int i = 0; i < ssid.length; i++) {
-                        msgByte[i + 1] = ssid[i];
-                    }
-                    byte[] psw = _psw.getBytes();
-                    for (int i = 0; i < psw.length; i++) {
-                        msgByte[i + 33] = psw[i];
-                    }
+                SystemClock.sleep(1000);
 
-                    listenPort();
-
-                    LogUtils.e("AP发送数据：" + new String(msgByte));
-                    TCPUtils.sendMsg(Constants.AP_IP, Constants.AP_PORT, msgByte);
-
-                    SystemClock.sleep(1000);
-
-                    wifiManager.disableNetwork(netID);
+                wifiManager.disableNetwork(netID);
 
 //                    netID = wifi.Connect(_ssid, _psw, WifiConnect.WifiCipherType.WIFICIPHER_WPA);
-                    WifiConfiguration wifiConfiguration = wifi.IsExsits(_ssid);
+                WifiConfiguration wifiConfiguration = wifi.IsExsits(_ssid);
 
-                    if (wifiConfiguration != null) {
+                if (wifiConfiguration != null) {
 
-                        netID = wifiConfiguration.networkId;
-                        wifiManager.enableNetwork(netID, true);
+                    netID = wifiConfiguration.networkId;
+                    wifiManager.enableNetwork(netID, true);
 
-                    } else {
-                        LogUtils.e("没有这个网络ID:" + _ssid);
-                    }
-
-
+                } else {
+                    LogUtils.e("没有这个网络ID:" + _ssid);
                 }
+
 
             }
 
@@ -297,12 +352,9 @@ public class SmartConfigActivity extends BaseActivity {
 
     /**
      * 开始AP模式
-     *
-     * @param _ssid
-     * @param _psw
      */
-    private void startAp(String _ssid, String _psw) {
-        _apThread = new ApThread(_ssid, _psw);
+    private void startAp() {
+        _apThread = new ApThread();
         _apThread.start();
     }
 
@@ -387,8 +439,6 @@ public class SmartConfigActivity extends BaseActivity {
                 message.what = WHAT_GET_SOCKET;
                 message.obj = text;
                 mHandler.sendMessage(message);
-//                Toast.makeText(mBaseActivity, text,
-//                        Toast.LENGTH_LONG).show();
             }
 
         });
@@ -471,10 +521,8 @@ public class SmartConfigActivity extends BaseActivity {
                         sb.append("\nthere's " + (result.size() - count)
                                 + " more result(s) without showing\n");
                     }
-//                    Toast.makeText(SmartConfigActivity.this, sb.toString(), Toast.LENGTH_SHORT).show();
                     LogUtils.e(sb.toString());
                 } else {
-//                    Toast.makeText(SmartConfigActivity.this, "Esptouch fail", Toast.LENGTH_SHORT).show();
                     LogUtils.e("Esptouch fail");
                 }
             }

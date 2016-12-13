@@ -1,7 +1,11 @@
 package com.heneng.heater.activitys;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +18,7 @@ import android.widget.Toast;
 import com.heneng.heater.R;
 import com.heneng.heater.esptouch.demo_activity.EspWifiAdminSimple;
 import com.heneng.heater.utils.Constants;
+import com.heneng.heater.utils.ReceiverActions;
 import com.heneng.heater.views.HeaderView;
 
 import butterknife.ButterKnife;
@@ -31,6 +36,31 @@ public class SmartConfigWifiActivity extends BaseActivity {
 
 
     private EspWifiAdminSimple mWifiAdmin;
+    private BroadcastReceiver mReceiver;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (TextUtils.equals(ReceiverActions.ACTION_FINISH_SMART_CONFIG, intent.getAction())) {
+                    finish();
+                }
+            }
+        };
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ReceiverActions.ACTION_FINISH_SMART_CONFIG);
+        registerReceiver(mReceiver, filter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mReceiver != null) {
+            unregisterReceiver(mReceiver);
+        }
+    }
 
     @Override
     public void init(Bundle savedInstanceState) {
@@ -55,7 +85,6 @@ public class SmartConfigWifiActivity extends BaseActivity {
             }
         });
     }
-
 
 
     void toConnect() {

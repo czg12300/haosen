@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -35,6 +36,7 @@ import com.heneng.heater.models.ResultGetNowData;
 import com.heneng.heater.utils.Constants;
 import com.heneng.heater.utils.LogUtils;
 import com.heneng.heater.utils.NetUtils;
+import com.heneng.heater.utils.ReceiverActions;
 import com.igexin.sdk.PushManager;
 
 import java.util.ArrayList;
@@ -118,12 +120,35 @@ public class DetailActivity extends FragmentActivity implements NetUtils.NetCall
         return sendCmd(code, method, params, clazz, true);
     }
 
+    private BroadcastReceiver mReceiver;
 
+
+    private void setReceiver() {
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (TextUtils.equals(ReceiverActions.ACTION_FINISH_SMART_CONFIG, intent.getAction())) {
+                    finish();
+                }
+            }
+        };
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ReceiverActions.ACTION_FINISH_SMART_CONFIG);
+        registerReceiver(mReceiver, filter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mReceiver != null) {
+            unregisterReceiver(mReceiver);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
+        setReceiver();
 
         //记录用户最后控制过哪个设备
         SharedPreferences sharedPreferences = getSharedPreferences("uinfo", Context.MODE_PRIVATE);
